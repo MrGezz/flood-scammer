@@ -69,7 +69,7 @@ print(info.job)
 >>> Sendiri
 info.job = "new job type"
 print(info.job)
->>> Whatever
+>>> new job type
 ```
 
 Or modify it by calling the function used to randomize the value:
