@@ -96,14 +96,14 @@ class fakedata:
 
 		return ic, age, gender
 
-	def job(self):
+	def random_job(self):
 		"""Randomly choose one job type from the list.
 		"""
 
 		joblist = ["Kerajaan","Swasta","Sendiri"]
 		return joblist[random.randint(0,int(len(joblist) - 1))]
 
-	def bank(self):
+	def random_bank(self):
 		"""Generate random bank account from the default bank dictionary.
 		"""
 
@@ -129,8 +129,8 @@ class fakedata:
 		self.ic, self.age, self.gender = self.random_ic(10,1)
 		self.phone = self.random_phone("01",8)
 		self.otp = self.random_otp(5)
-		self.job = self.job()
-		self.bankname, self.bankaccount = self.bank()
+		self.job = self.random_job()
+		self.bankname, self.bankaccount = self.random_bank()
 
 	def __str__(self):
 		data = f"Name: {self.name}\nIC: {self.ic}\nAge: {self.age}\nGender: {self.gender}\nPhone: {self.phone}\nJob: {self.job}\nBank Name: {self.bankname}\nAccount Number: {self.bankaccount}\nOTP: {self.otp}"
