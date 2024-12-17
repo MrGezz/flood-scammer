@@ -57,7 +57,7 @@ class fakedata:
 		return name
 
 	def random_ic(self, n, style):
-		"""Generate random identity card ID and Age based on the ID.
+		"""Generate random identity card ID and Age based on the ID. The gender will be based on the last digit of the generated ID.
 
 		Args:
 			n: Total character of the ID
@@ -65,14 +65,14 @@ class fakedata:
 
 		Example:
 			random_ic(10,1)
-			output: ('800101223333','44')
+			output: ('800101223333','44','Lelaki')
 
 			random_ic(10,2)
-			output: ('800101-22-3333','44')
+			output: ('800101-22-3333','44','Lelaki')
 
 			ic, age = random_ic(10,2)
-			print(f'IC:{ic}\nAge:{age}')
-			output(800101-22-3333 44)
+			print(ic, age)
+			output('800101-22-3333' '44' 'Lelaki')
 		"""
 
 		year = str(random.randint(50,99))
@@ -88,6 +88,7 @@ class fakedata:
 		else:
 			ic = year + month + day + mid + last
 
+		#Check if the last digit is even or odd
 		if int(last[-1]) % 2 == 0:
 			gender = 'Perempuan'
 		else:
@@ -96,6 +97,9 @@ class fakedata:
 		return ic, age, gender
 
 	def job(self):
+		"""Randomly choose one job type from the list.
+		"""
+
 		joblist = ['Kerajaan','Swasta','Sendiri']
 		return joblist[random.randint(0,int(len(joblist) - 1))]
 
