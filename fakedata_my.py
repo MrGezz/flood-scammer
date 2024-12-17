@@ -14,7 +14,7 @@ class fakedata:
 			n: The total character to generate after <start> argument
 
 		Example:
-			random_phone('01',8)
+			random_phone("01",8)
 			output: 0112345678
 		"""
 
@@ -34,10 +34,10 @@ class fakedata:
 			output: 12345
 		"""
 
-		otp = ''
+		otp = ""
 		for a in range(n):
 			otp += str(random.randint(0,9))
-		#otp = ''.join(str(random.randint(0,9) for a in range(n)))
+		#otp = "".join(str(random.randint(0,9) for a in range(n)))
 		return otp
 
 	def random_name(self, dict):
@@ -47,7 +47,7 @@ class fakedata:
 			dict: The list of names
 
 		Example:
-			list = fakedata().name_dict('names.txt',2)
+			list = fakedata().name_dict("names.txt",2)
 			random_name(list)
 			output: NameC NameA
 		"""
@@ -65,14 +65,14 @@ class fakedata:
 
 		Example:
 			random_ic(10,1)
-			output: ('800101223333','44','Lelaki')
+			output: ("800101223333","44","Lelaki")
 
 			random_ic(10,2)
-			output: ('800101-22-3333','44','Lelaki')
+			output: ("800101-22-3333","44","Lelaki")
 
 			ic, age = random_ic(10,2)
 			print(ic, age)
-			output('800101-22-3333' '44' 'Lelaki')
+			output("800101-22-3333" "44" "Lelaki")
 		"""
 
 		year = str(random.randint(50,99))
@@ -84,15 +84,15 @@ class fakedata:
 		if style == 1:
 			ic = year + month + day + mid + last
 		elif style == 2:
-			ic = year + month + day + '-' + mid + '-' + last
+			ic = year + month + day + "-" + mid + "-" + last
 		else:
 			ic = year + month + day + mid + last
 
 		#Check if the last digit is even or odd
 		if int(last[-1]) % 2 == 0:
-			gender = 'Perempuan'
+			gender = "Perempuan"
 		else:
-			gender = 'Lelaki'
+			gender = "Lelaki"
 
 		return ic, age, gender
 
@@ -100,7 +100,7 @@ class fakedata:
 		"""Randomly choose one job type from the list.
 		"""
 
-		joblist = ['Kerajaan','Swasta','Sendiri']
+		joblist = ["Kerajaan","Swasta","Sendiri"]
 		return joblist[random.randint(0,int(len(joblist) - 1))]
 
 	def bank(self):
@@ -108,13 +108,13 @@ class fakedata:
 		"""
 
 		banklist = {
-		'1': ['AmBank Berhad',13,'888'],
-		'2': ['CIMB Bank Berhad',10,'7'],
-		'3': ['Maybank Berhad',12,'1'],
-		'4': ['Alliance Bank',14,'12'],
-		'5': ['Hong Leong Bank',10,'3'],
-		'6': ['Public Bank Berhad',10,'4'],
-		'7': ['OCBC Bank',10,'5']
+		'1': ["AmBank Berhad",13,"888"],
+		'2': ["CIMB Bank Berhad",10,"7"],
+		'3': ["Maybank Berhad",12,"1"],
+		'4': ["Alliance Bank",14,"12"],
+		'5': ["Hong Leong Bank",10,"3"],
+		'6': ["Public Bank Berhad",10,"5"],
+		'7': ["OCBC Bank",10,"5"]
 		}
 
 		choose_bank = random.choice(list(banklist.values()))
@@ -127,13 +127,13 @@ class fakedata:
 		#name_list = self.name_dict(dict, 1)
 		self.name = self.random_name(name_list)
 		self.ic, self.age, self.gender = self.random_ic(10,1)
-		self.phone = self.random_phone('01',8)
+		self.phone = self.random_phone("01",8)
 		self.otp = self.random_otp(5)
 		self.job = self.job()
 		self.bankname, self.bankaccount = self.bank()
 
 	def __str__(self):
-		data = f'Name: {self.name}\nIC: {self.ic}\nAge: {self.age}\nGender: {self.gender}\nPhone: {self.phone}\nJob: {self.job}\nBank Name: {self.bankname}\nAccount Number: {self.bankaccount}\nOTP: {self.otp}'
+		data = f"Name: {self.name}\nIC: {self.ic}\nAge: {self.age}\nGender: {self.gender}\nPhone: {self.phone}\nJob: {self.job}\nBank Name: {self.bankname}\nAccount Number: {self.bankaccount}\nOTP: {self.otp}"
 
 		return data
 
@@ -154,23 +154,23 @@ class namelist:
 				NameB
 				NameC
 
-			name_dict('names.txt', 2)
+			name_dict("names.txt", 2)
 			output:
 				NameA NameB
 				NameC NameA
 		"""
 
-		with open(dict, 'r') as f:
+		with open(dict, "r") as f:
 			name_list = f.read().splitlines()
 		n = len(name_list) - 1
 		new_name_list = []
 		for a in range(name_count):
-			new_name_list.append(name_list[random.randint(0,int(n))] + ' ' + name_list[random.randint(0,int(n))])
+			new_name_list.append(name_list[random.randint(0,int(n))] + " " + name_list[random.randint(0,int(n))])
 		return new_name_list
 
 	def load(self, dict):
 		"""Load list of names from file."""
 
-		with open(dict, 'r') as f:
+		with open(dict, "r") as f:
 			name_list = f.read().splitlines()
 		return name_list
