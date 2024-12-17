@@ -1,6 +1,6 @@
 # flood-scammer
 
-This project is created to randomly generate fake personal information specifically for Malaysia residence from a class called fakedata. Some features:
+This project is created to randomly generate fake personal information specifically for Malaysia residence from a class called fakedata. A demonstration of Object-Oriented Programming in Python. Features include:
 * Pick name from list of names
 * Generate random Malaysian Identity Card Number
 * Assign Age and Gender based on the generated IC Number
