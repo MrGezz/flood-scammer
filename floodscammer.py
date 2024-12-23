@@ -18,7 +18,7 @@ for a in range(len(names)):
 	'fullname': fake_data.name,
 	'phone': fake_data.phone,
 	'otp': fake_data.otp
-	}
+	})
 	status_text = ''
 	if response.status_code == 200:
 		status_text = 'OK'
